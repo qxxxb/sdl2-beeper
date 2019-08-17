@@ -122,6 +122,10 @@ void Beeper::open() {
     // Since we are just playing a simple sine wave, we only need one channel.
     desiredSpec.channels = 1;
 
+    // Set the callback (pointer to a function) to our callback. This function
+    // will be called by SDL2 in a separate thread when it needs to write data
+    // to the audio buffer. In other words, we don't control when this function
+    // is called; SDL2 manages it.
     desiredSpec.callback = Beeper::audioCallback;
 
     // When we open the audio device, we tell SDL2 what audio specifications we
