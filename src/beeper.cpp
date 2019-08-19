@@ -132,7 +132,7 @@ void Beeper::open() {
     // desire. SDL2 will try to get these specifications when opening the audio
     // device, but sometimes the audio device does not support some of our
     // desired specifications. In that case, we have to be flexible and adapt
-    // to want the audio device supports. The obtained specifications that the
+    // to what the audio device supports. The obtained specifications that the
     // audio device supports will be stored in `m_obtainedSpec`
 
     m_audioDevice = SDL_OpenAudioDevice(
@@ -145,7 +145,7 @@ void Beeper::open() {
 
     if (m_audioDevice == 0) {
         SDL_Log("Failed to open audio: %s", SDL_GetError());
-        // TODO: throw exeption
+        // TODO: throw exception
     } else {
         std::string formatName;
         switch (m_obtainedSpec.format) {
@@ -161,7 +161,7 @@ void Beeper::open() {
                 break;
             default:
                 SDL_Log("Unsupported audio format: %i", m_obtainedSpec.format);
-                // TODO: throw exeption
+                // TODO: throw exception
         }
 
         std::cout << "[Beeper] frequency: " << m_obtainedSpec.freq << std::endl;
