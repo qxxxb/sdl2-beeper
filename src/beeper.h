@@ -21,7 +21,7 @@ private:
     static double m_frequency; // Units: Hz
     static double m_volume; // Range: 0.0 .. 1.0
 
-    // The current playback position, according to `geData()` and
+    // The current playback position, according to `getData()` and
     // `audioCallback()`. Units: samples
     static int m_pos;
 
